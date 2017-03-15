@@ -3,8 +3,8 @@
  */
 public class Printer {
 
-    boolean isOn;
-    String modelNumber;
+    private boolean isOn;
+    private String modelNumber;
 
     public Printer(boolean isOn, String modelNumber) {
         this.isOn = isOn;
@@ -12,7 +12,8 @@ public class Printer {
     }
 
     void print() {
-        System.out.println(toString());
+        if (isOn = true)
+            System.out.println(toString());
     }
 
     void printString(String s) {
@@ -29,9 +30,6 @@ public class Printer {
 
     @Override
     public String toString() {
-        return "Printer{" +
-                "isOn=" + isOn +
-                ", modelNumber='" + modelNumber + '\'' +
-                '}';
+        return "Printer " + modelNumber + " включен";
     }
 }
