@@ -42,6 +42,17 @@ public class Printer {
         }
     }
 
+    /**
+     * Возвращает строковое представление состояния
+     * @return
+     */
+    private String getState() {
+        if (isOn == true)
+            return "On";
+        else
+            return "Off";
+    }
+
     void printString(String s) {
         System.out.println(s);
     }
@@ -54,12 +65,6 @@ public class Printer {
      * Этот метод возвращает текущее состояние в виде строки
      * @return String
      */
-    private String getState() {
-        if (isOn == true)
-            return "On";
-        else
-            return "Off";
-    }
 
     @Override
     public String toString() {
