@@ -37,10 +37,8 @@ public class Printer {
      * @param
      */
     void printColors() {
-        String[] colors;
-        colors = new String[]{"Red", "Green", "Blue"};
-        for (String x: colors) {
-            System.out.println(x);
+        for (Color x: Color.values()) {
+            System.out.println(x.name + " " + Integer.toHexString(x.code));
         }
     }
 
