@@ -28,6 +28,8 @@ public class Printer {
                 System.out.println(text);
             }
         }
+        else
+            System.out.println(modelNumber + " is off");
     }
 
     /**
@@ -54,7 +56,7 @@ public class Printer {
      * Этот метод возвращает текущее состояние в виде строки
      * @return String
      */
-    String getState() {
+    private String getState() {
         if (isOn == true)
             return "On";
         else
