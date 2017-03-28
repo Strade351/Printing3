@@ -1,7 +1,7 @@
 /**
  * Created by Тим on 28.03.2017.
  */
-public class Machine{
+public class Machine implements IMachine{
     boolean isOn;
 
 
@@ -13,6 +13,16 @@ public class Machine{
     public void turnOff(){
         isOn = false;
         System.out.println("Machine is Off");
+    }
+
+    @Override
+    public boolean checkisOn() {
+        if (isOn) {
+            return true;
+
+        } else {
+            return false;
+        }
     }
 
     public Machine(boolean isOn) {

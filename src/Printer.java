@@ -1,14 +1,13 @@
 /**
  * Created by ABondarev on 15.03.2017.
  */
-public class Printer implements IMachine{
-    boolean isOn;
+public class Printer implements IMachine {
+    IMachine iMachine;
     String modelNumber;
     PaperTray paperTray;
 
     public Printer(boolean isOn, String modelNumber) {
-
-        this.isOn = isOn;
+        this.iMachine = new Machine(false);
         this.modelNumber = modelNumber;
         this.paperTray = new PaperTray();
     }
@@ -22,10 +21,11 @@ public class Printer implements IMachine{
 
     /**
      * Печать текста
+     *
      * @param
      */
     @Override
-    public void turnOn(){
+    public void turnOn() {
         System.out.println("Warning up printer");
 
     }
@@ -35,8 +35,13 @@ public class Printer implements IMachine{
         System.out.println("Printer is Off");
     }
 
+    @Override
+    public boolean checkisOn() {
+       return iMachine.checkisOn();
+    }
+
     void print(String text, int copies) {
-        if (isOn == true) {
+        if (checkisOn()) {
             while((!paperTray.isEmpty())&&(copies>0)){
                 System.out.println(text);
                 paperTray.pages--;
@@ -66,7 +71,7 @@ public class Printer implements IMachine{
      * @return
      */
     private String getState() {
-        if (isOn == true)
+        if (checkisOn())
             return "On";
         else
             return "Off";
