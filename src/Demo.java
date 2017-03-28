@@ -5,8 +5,9 @@ public class Demo {
     public static void main(String[] args) {
         //new branch
         Printer printer = new Printer(true, "SUPER_PRINTER");
-        printer.print();
+        printer.print("welcome to the machine", 2);
+        printer.turnOff();
         printer.print("Nine Inch Nails", 9);
-        printer.printColors();
+
     }
 }

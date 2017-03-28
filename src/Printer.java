@@ -1,13 +1,12 @@
 /**
  * Created by ABondarev on 15.03.2017.
  */
-public class Printer {
+public class Printer extends Machine{
 
-    private boolean isOn;
-    private String modelNumber;
+    String modelNumber;
 
     public Printer(boolean isOn, String modelNumber) {
-        this.isOn = isOn;
+        super(isOn);
         this.modelNumber = modelNumber;
     }
 
