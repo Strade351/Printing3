@@ -1,13 +1,16 @@
 /**
  * Created by ABondarev on 15.03.2017.
  */
-public class Printer extends Machine{
-
+public class Printer implements IMachine{
+    boolean isOn;
     String modelNumber;
+    PaperTray paperTray;
 
     public Printer(boolean isOn, String modelNumber) {
-        super(isOn);
+
+        this.isOn = isOn;
         this.modelNumber = modelNumber;
+        this.paperTray = new PaperTray();
     }
 
     /**
@@ -21,11 +24,28 @@ public class Printer extends Machine{
      * Печать текста
      * @param
      */
+    @Override
+    public void turnOn(){
+        System.out.println("Warning up printer");
+
+    }
+
+    @Override
+    public void turnOff() {
+        System.out.println("Printer is Off");
+    }
+
     void print(String text, int copies) {
         if (isOn == true) {
-            for (int i = 0; i < copies; i++) {
+            while((!paperTray.isEmpty())&&(copies>0)){
                 System.out.println(text);
+                paperTray.pages--;
+                copies--;
             }
+            if(paperTray.isEmpty()){
+                System.out.println("There is no paper");
+            }
+
         }
         else
             System.out.println(modelNumber + " is off");
@@ -69,5 +89,8 @@ public class Printer extends Machine{
     public String toString() {
         String s = "Printer model: " + modelNumber + "\n Current state: " + getState();
         return s;
+    }
+    public void loadPaper(int cound){
+        paperTray.addPaper(cound);
     }
 }
