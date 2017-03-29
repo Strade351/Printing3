@@ -6,7 +6,6 @@ public enum Color {
     GREEN("Green", 0x00ff00),
     BlUE("Blue", 0x0000ff);
 
-
     String name;
     int code;
 
