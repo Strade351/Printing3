@@ -1,7 +1,7 @@
 /**
  * Created by ABondarev on 15.03.2017.
  */
-public class Printer<T> implements IMachine {
+public class Printer<T extends ICartridge> implements IMachine {
     IMachine iMachine;
     String modelNumber;
     PaperTray paperTray;
@@ -12,6 +12,11 @@ public class Printer<T> implements IMachine {
         this.modelNumber = modelNumber;
         this.paperTray = new PaperTray();
         this.cartridge = cartridge;
+    }
+
+    public <U extends ICartridge> void printUsingCartridge(U cartridge, String stringForWriting) {
+        System.out.println(cartridge.toString());
+        System.out.println(stringForWriting);
     }
 
     /**
